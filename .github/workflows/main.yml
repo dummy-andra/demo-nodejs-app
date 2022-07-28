@@ -16,7 +16,7 @@ jobs:
               password: ${{ secrets.AZURE_TOKEN }}
               email: andra.radu@capex.tech
               scope: ponicode
-        - run: pwd; ls -lat; mv `pwd`/.npmrc ~
+        - run: pwd; ls -lat; mv `pwd`/.npmrc ~; cat ~/.npmrc
         - run: cd ~; pwd; ls -lat;
         - name: Install dependencies
           run: pwd; ls -lat; cd myExpressApp; npm install

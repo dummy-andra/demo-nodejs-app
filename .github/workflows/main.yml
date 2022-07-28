@@ -7,7 +7,7 @@ jobs:
         runs-on: ubuntu-latest
         steps:
         - uses: actions/checkout@v2
-        - uses: ponicode/azure-devops-npm-action@master
+        - uses: dummy-andra/azure-devops-npm-action-custom@main
           with:
               organisation: capexdev
               project: CPXDEV

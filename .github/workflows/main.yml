@@ -1,20 +1,25 @@
-name: Push a NPM package to Azure Artifacts or GitHub Package Registry
-
+name: Publish on Azure NPM registry
 on:
-  push:
-    branches:
-      - main
-
+    push:
+        branches: [master]
 jobs:
-  publish:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v1
-      - uses: innerspacetrainings/azure-npm-publish@master
-        with:
-          package-dir: 'myExpressApp'
-          npm-email: 'andra.radu@capex.tech'
-          organization: 'capexdev'
-          feed: 'github-demo'
-          username: 'capexdev'
-          base64-token: ${{ secrets.AZURE_ARTIFACTS_PAT }}
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - uses: ponicode/azure-devops-npm-action@master
+          with:
+              organisation: capexdev
+              project: CPXDEV
+              registry: https://pkgs.dev.azure.com/capexdev/CPXDEV/_packaging/github-demo/npm/registry/
+              user: capexdev
+              password: ${{ secrets.AZURE_TOKEN }}
+              email: andra.radu@capex.tech
+              scope: ponicode
+        - run: cp `pwd`/.npmrc ~ # We need the .npmrc file in the $HOME directory
+        - name: Install dependencies
+          run: npm install
+        - name: Build
+          run: npm run build
+        - name: Publish to Azure
+          run: npm publish

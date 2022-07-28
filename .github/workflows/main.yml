@@ -16,7 +16,7 @@ jobs:
               password: ${{ secrets.AZURE_TOKEN }}
               email: andra.radu@capex.tech
               scope: ponicode
-        - run: ls; cat `pwd`/.npmrc; cp `pwd`/.npmrc ~ # We need the .npmrc file in the $HOME directory
+        - run: cp `pwd`/.npmrc ./myExpressApp/.npmrc; ls -lat
         - name: Install dependencies
           run: cd myExpressApp && npm install
 #         - name: Build

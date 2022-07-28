@@ -19,4 +19,4 @@ jobs:
         - name: Install dependencies
           run: cd myExpressApp && npm install
         - name: Publish to Azure
-          run: cd myExpressApp && sudo npm publish
+          run: cd myExpressApp && npm publish

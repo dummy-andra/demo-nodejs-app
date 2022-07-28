@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v1
-      - uses: dummy-andra/demo-nodejs-app@master
+      - uses: dummy-andra/demo-nodejs-app@main
         with:
           package-dir: 'myExpressApp'
           npm-email: 'andra.radu@capex.tech'

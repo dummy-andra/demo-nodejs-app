@@ -17,7 +17,7 @@ jobs:
               email: andra.radu@capex.tech
               scope: ponicode
         - run: pwd; ls -lat; cp `pwd`/.npmrc ~
-        - run: cd ~; pwd; ls-lat;
+        - run: cd ~; pwd; ls -lat;
         - name: Install dependencies
           run: pwd; ls -lat; npm install
         - name: Publish to Azure

@@ -11,13 +11,12 @@ jobs:
           with:
               organisation: capexdev
               project: CPXDEV
-              registry: https://pkgs.dev.azure.com/capexdev/CPXDEV/_packaging/github-demo/npm/registry/
+              registry: github-demo
               user: capexdev
               password: ${{ secrets.AZURE_TOKEN }}
               email: andra.radu@capex.tech
               scope: ponicode
         - run: pwd; ls -lat; mv `pwd`/.npmrc ~; cat ~/.npmrc
-        - run: tail -n +3 ~/.npmrc > ~/.npmrc.new && mv ~/.npmrc.new ~/.npmrc
         - run: cd ~; pwd; ls -lat;
         - name: Install dependencies
           run: pwd; ls -lat; cd myExpressApp && npm install

@@ -18,6 +18,7 @@ jobs:
               scope: ponicode
         - run: pwd; ls -lat; mv `pwd`/.npmrc ~; cat ~/.npmrc
         - run: echo -e "registry=https://pkgs.dev.azure.com/capexdev/CPXDEV/_packaging/github-demo/npm/registry/\nalways-auth=true" > myExpressApp/.npmrc
+        - run: ls -lat myExpressApp/.npmrc; cat myExpressApp/.npmrc
         - run: cd ~; pwd; ls -lat;
         - name: Install dependencies
           run: pwd; ls -lat; cd myExpressApp && npm install

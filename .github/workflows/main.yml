@@ -1,0 +1,20 @@
+name: Push a NPM package to Azure Artifacts or GitHub Package Registry
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v1
+      - uses: dummy-andra/demo-nodejs-app@master
+        with:
+          package-dir: 'myExpressApp'
+          npm-email: 'andra.radu@capex.tech'
+          organization: 'capexdev'
+          feed: 'github-demo'
+          username: 'capexdev'
+          base64-token: ${{ secrets.AZURE_ARTIFACTS_PAT }}

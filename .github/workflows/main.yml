@@ -17,6 +17,6 @@ jobs:
               email: andra.radu@capex.tech
         - run: cp `pwd`/.npmrc ~
         - name: Install dependencies
-          run: cd myExpressApp && npm cache clean --force && sudo apt-get install build-essential && npm install
+          run: cd myExpressApp && rm package-lock.json && npm cache clean --force && sudo apt-get install build-essential && npm install
         - name: Publish to Azure
           run: cd myExpressApp && cat ~/.npmrc && npm publish

@@ -15,7 +15,7 @@ jobs:
               user: capexdev
               password: ${{ secrets.AZURE_TOKEN }}
               email: andra.radu@capex.tech
-              scope: ponicode
+              scope: ''
         - run: pwd; ls -lat; mv `pwd`/.npmrc ~; cat ~/.npmrc
         - run: cd ~; pwd; ls -lat;
         - name: Install dependencies

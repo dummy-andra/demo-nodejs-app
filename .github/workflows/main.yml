@@ -18,8 +18,8 @@ jobs:
               scope: ponicode
         - run: cp `pwd`/.npmrc ~ # We need the .npmrc file in the $HOME directory
         - name: Install dependencies
-          run: npm install
+          run: cd myExpressApp && npm install
         - name: Build
-          run: npm run build
+          run: cd myExpressApp && npm run build
         - name: Publish to Azure
-          run: npm publish
+          run: cd myExpressApp && npm publish
